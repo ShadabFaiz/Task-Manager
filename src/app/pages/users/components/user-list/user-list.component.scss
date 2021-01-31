@@ -1,0 +1,53 @@
+.container {
+  width: 50vw !important;
+  margin: auto;
+  margin-top: 5%;
+  min-width: 400px;
+
+  form {
+    small {
+      color: gray;
+    }
+  }
+  .table-wrapper {
+    position: relative;
+    height: 60vh;
+    overflow-y: auto;
+  }
+  table {
+    thead {
+      position: sticky;
+      top: 0px;
+    }
+    th {
+      width: 33%;
+      position: sticky;
+      top: 0px;
+      background: #059b9a;
+      color: white;
+      border: 0px;
+    }
+
+    tbody tr {
+      &:nth-child(even) {
+        background: #f4f4f4;
+      }
+
+      td {
+        height: 8vh;
+      }
+    }
+  }
+}
+
+.user-img {
+  width: 28%;
+}
+
+input {
+  outline: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

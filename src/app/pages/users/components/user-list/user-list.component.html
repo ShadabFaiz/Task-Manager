@@ -1,0 +1,64 @@
+<div class="container">
+  <form [formGroup]="filterForm">
+    <div class="form-group">
+      <input
+        formControlName="name"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Search user by name"
+      />
+      <small>Searching is case-insensitive</small>
+    </div>
+  </form>
+  <div class="table-wrapper">
+    <table aria-describedby="Users List" class="table">
+      <thead>
+        <tr
+          style="background: #059b9a; color: white; border: 0px"
+          class="sortable-headers"
+        >
+          <th scope="serial no">#</th>
+          <th scope="username">
+            Username
+            <em class="glyphemcon glyphicon-sort"></em>
+          </th>
+          <th scope="user image">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="filteredUsers | async; let list; else: loading">
+          <ng-container *ngIf="list.length; else noData">
+            <tr *ngFor="let user of list; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <span class="message">{{ user.name }}</span>
+              </td>
+              <td>
+                <img
+                  class="user-img"
+                  [src]="user.picture"
+                  [alt]="user.name"
+                  *ngIf="user.picture; else noUserImg"
+                />
+                <ng-template #noUserImg> User Image Not Available </ng-template>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #noData>
+            <tr>
+              <td colspan="4" class="text-center"><h3>No Data Found</h3></td>
+            </tr>
+          </ng-template>
+        </ng-container>
+        <ng-template #loading>
+          <tr>
+            <td colspan="4" class="text-center">
+              <h3>Loading User List...</h3>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>

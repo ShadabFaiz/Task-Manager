@@ -1,0 +1,13 @@
+a.nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+  background: #007bff;
+  color: #fff;
+}
+::ng-deep {
+  nav.navbar {
+    padding: 0px;
+  }
+}

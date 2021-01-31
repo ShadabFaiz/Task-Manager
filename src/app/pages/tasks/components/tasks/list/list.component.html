@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="table-wrapper">
+    <table class="user-list-table" aria-describedby="Users List" class="table">
+      <thead>
+        <tr
+          style="background: #059b9a; color: white; border: 0px"
+          class="sortable-headers"
+        >
+          <th scope="searial no">#</th>
+          <th scope="message" (click)="sortListBy('name')">
+            Message
+            <em class="glyphicon glyphicon-sort"></em>
+          </th>
+          <th scope="priority" (click)="sortListBy('name')">
+            Priority
+            <em class="glyphicon glyphicon-sort"></em>
+          </th>
+          <th scope="priority" (click)="sortListBy('name')">
+            Assigned To
+            <em class="glyphicon glyphicon-sort"></em>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [formGroup]="filterForm" *ngIf="filterForm">
+          <td></td>
+          <td>
+            <div class="input-group">
+              <input
+                placeholder="Message"
+                id="message"
+                type="text"
+                class="form-control"
+                formControlName="message"
+              />
+            </div>
+          </td>
+          <td>
+            <select
+              class="form-control"
+              formControlName="priority"
+              id="priority"
+            >
+              <option value="1">1 (Normal)</option>
+              <option value="2">2 (Mid)</option>
+              <option value="3">3 (High)</option>
+              <option value="">NA</option>
+            </select>
+          </td>
+          <td></td>
+        </tr>
+
+        <ng-container *ngIf="filteredTaskList | async; let list; else: loading">
+          <ng-container *ngIf="list.length; else noData">
+            <tr *ngFor="let task of list; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <span class="message">{{ task.message }}</span>
+              </td>
+              <td>{{ task.priority || "NA" }}</td>
+              <td>{{ task.assigned_to || "NA" }}</td>
+            </tr>
+          </ng-container>
+          <ng-template #noData>
+            <tr>
+              <td colspan="4" class="text-center"><h3>No Data Found</h3></td>
+            </tr>
+          </ng-template>
+        </ng-container>
+        <ng-template #loading>
+          <tr>
+            <td colspan="4" class="text-center">
+              <h3>Loading Task List...</h3>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+:host .important {
+  color: red;
+}
+
+:host form {
+  width: 50vw;
+  margin: auto;
+  margin-top: 5%;
+  border: 2px solid #f0efef;
+  border-radius: 5px;
+  padding: 2%;
+  box-shadow: 2px 2px 5px #ececec;
+
+  input[type="submit"] {
+    margin: auto;
+    display: block;
+    outline: none;
+    box-shadow: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.btn-loading {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 4px solid transparent;
+  border-top: 4px solid rgb(21, 186, 236);
+  border-right: 4px solid rgb(21, 186, 236);
+  background: transparent;
+  transition: width 10ms, height 10ms;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,62 @@
+.container {
+  width: 55vw !important;
+  margin: auto;
+  margin-top: 5%;
+  min-width: 400px;
+
+  form {
+    small {
+      color: gray;
+    }
+  }
+  .table-wrapper {
+    position: relative;
+    height: 65vh;
+    overflow-y: auto;
+  }
+  table {
+    input {
+      z-index: 1;
+      &:focus {
+        z-index: 1;
+      }
+    }
+    thead {
+      position: sticky;
+      top: 0px;
+      z-index: 3;
+
+      th {
+        background: #059b9a;
+        color: white;
+        border: 0px;
+        position: sticky;
+        top: 0px;
+        width: 6%;
+        z-index: 3;
+      }
+    }
+
+    tbody tr {
+      &:nth-child(even) {
+        background: #f4f4f4;
+      }
+    }
+  }
+
+  .message {
+    width: 200px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+input {
+  outline: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

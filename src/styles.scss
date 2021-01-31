@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error-msg {
+  margin-top: 2%;
+  color: red;
+  text-align: center;
+}
+.success-msg {
+  margin-top: 2%;
+  color: green;
+  text-align: center;
+}
+
+.user-list-table {
+  th {
+    position: sticky;
+    top: 0px;
+  }
+}
